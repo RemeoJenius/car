@@ -1,0 +1,60 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: jenius
+    url: jdbc:mysql://127.0.0.1:3306/car?characterEncoding=utf-8&useSSL=false
+  mail:
+   host: smtp.qq.com
+   username:  164197625@qq.com
+   password:  yxadmqjxmqujcbec
+   properties:
+    mail:
+      smtp:
+        auth: true # 这样才能通过验证
+        starttls:
+            enable: true
+            required: true
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+  jackson:
+    default-property-inclusion: non_null
+  redis:
+      host: 127.0.0.1
+      port: 6379
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+server:
+  context-path: /car
+#  ssl:
+#    key-store: keystore.p12
+#    key-store-password: 111111
+#    key-store-type: PKCS12
+#    key-alias: tomcat
+
+mail:
+  from: 164197625@qq.com
+
+
+
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
+
+custom:
+  tmpLocation: /Volumes/ziyan/IntellijIDEAproject/car/src/main/resources/static/upload/
+  resourceLocation: /Volumes/ziyan/IntellijIDEAproject/car/src/main/resources/static/upload/
+
+
+#logging:
+#  pattern:
+#    console: "%d - %msg %n"
+##  path: /Users/liyongjun/Desktop
+#  file: /Users/liyongjun/Desktop/sell.log

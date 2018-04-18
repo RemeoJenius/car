@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jenius.recommend.car.dataobject.mapper.CarMapper">
+
+
+    <resultMap id="ResultMap" type="com.jenius.recommend.car.dto.CarDTO">
+        <id column="car_id" property="carId" javaType="INTEGER"></id>
+    </resultMap>
+    <select id="listCar" resultMap="ResultMap" parameterType="com.jenius.recommend.car.form.CarComparingForm">
+        select i.car_id,i.car_name,i.car_icon,i.car_level,i.car_rating,i.car_structure , p.car_transmission,p.car_engine,p.car_price from car_info i, car_price p where  i.car_id = p.car_id
+        <if test="carComparingForm.carStructure!=null and carComparingForm.carStructure!='' ">
+            AND car_structure = #{carComparingForm.carStructure}
+        </if>
+        <if test="carComparingForm.carLevel!=null and carComparingForm.carLevel!=''">
+            AND car_level = #{carComparingForm.carLevel}
+        </if>
+        <if test="carComparingForm.carEngine!=null and carComparingForm.carEngine!=''">
+            AND car_engine = #{carComparingForm.carEngine}
+        </if>
+        <if test="carComparingForm.carTransmission!=null and carComparingForm.carTransmission!=''">
+            AND car_transmission = #{carComparingForm.carTransmission}
+        </if>
+        <if test="carComparingForm.carName!=null and carComparingForm.carName!=''">
+            AND car_name = #{carComparingForm.carName}
+        </if>
+        <if test="carComparingForm.minPrice!=null and carComparingForm.maxPrice!=null">
+            AND car_price > #{carComparingForm.minPrice} AND #{carComparingForm.maxPrice} > car_price
+        </if>
+
+    </select>
+</mapper>
