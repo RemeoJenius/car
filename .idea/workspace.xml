@@ -4,71 +4,11 @@
     <option name="GROUP_BY_SEVERITY" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c544a629-ff23-49e5-ae3f-cbe298bd8b0e" name="Default" comment="第一次提交代码此次完成用户登录，注册。前端页面及后端大致整理以及汽车信息比较">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/dataobject/CarComment.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/form/TestForm.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/repository/CarCommentRepository.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/service/CarCommentService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/service/FileUploadService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/service/impl/CarCommentServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/service/impl/FileUploadServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/vo/CarCommentVO.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/vo/CarDetailAndCommentVO.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/vo/CarDetailVO.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/user/comment/css/comment.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/user/comment/css/style.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/user/comment/images/header-img-comment_03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/user/comment/images/icon-all_01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/user/comment/js/jquery-1.12.0.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/user/comment/js/jquery.flexText.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/user/comment/json/hf.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/user/comment/json/pl.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/user/js/detail.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/form-update.ftl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/car-details.ftl" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/jenius/recommend/car/service/impl/CarCommentServiceImplTest.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/jenius/recommend/car/service/impl/MySqlImportAndExport.java" />
+    <list default="true" id="c544a629-ff23-49e5-ae3f-cbe298bd8b0e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/controller/CarInfoController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/controller/CarInfoController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/controller/FileUploadController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/controller/FileUploadController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/dataobject/CarPrice.java" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/dataobject/CarPrice.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/enums/ResultEnum.java" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/enums/ResultEnum.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/form/CarForm.java" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/form/CarForm.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/handler/CarExceptionHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/handler/CarExceptionHandler.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/repository/CarPriceRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/repository/CarPriceRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/service/CarPriceService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/service/CarPriceService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/service/HanLPService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/service/HanLPService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/service/impl/CarPriceServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/service/impl/CarPriceServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/service/impl/HanLPServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/service/impl/HanLPServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/util/ResultVOUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/jenius/recommend/car/util/ResultVOUtil.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user/upload/8659e884-b507-4b48-87ab-e115fa1d4efd.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/form-showcase.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/form-showcase.ftl" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/carList.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/carList.ftl" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/upload.ftl" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/upload.ftl" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jenius/recommend/car/service/impl/CarPriceServiceImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/jenius/recommend/car/service/impl/CarPriceServiceImplTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jenius/recommend/car/service/impl/HanLPServiceImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/jenius/recommend/car/service/impl/HanLPServiceImplTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jenius/recommend/car/service/impl/MailServiceImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/jenius/recommend/car/service/impl/MailServiceImplTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jenius/recommend/car/utils/ParseMD5UtilTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/jenius/recommend/car/utils/ParseMD5UtilTest.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" afterPath="$PROJECT_DIR$/target/classes/application.yml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/controller/CarInfoController.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/controller/FileUploadController.class" afterPath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/controller/FileUploadController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/dataobject/CarPrice.class" afterPath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/dataobject/CarPrice.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/form/CarForm.class" afterPath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/form/CarForm.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/handler/CarExceptionHandler.class" afterPath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/handler/CarExceptionHandler.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/repository/CarPriceRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/repository/CarPriceRepository.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/service/CarPriceService.class" afterPath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/service/CarPriceService.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/service/HanLPService.class" afterPath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/service/HanLPService.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/service/impl/CarPriceServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/service/impl/CarPriceServiceImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/service/impl/HanLPServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/service/impl/HanLPServiceImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/user/upload/8659e884-b507-4b48-87ab-e115fa1d4efd.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/form-showcase.ftl" afterPath="$PROJECT_DIR$/target/classes/templates/admin/form-showcase.ftl" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/user/upload.ftl" afterPath="$PROJECT_DIR$/target/classes/templates/user/upload.ftl" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/jenius/recommend/car/service/impl/CarPriceServiceImplTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/jenius/recommend/car/service/impl/CarPriceServiceImplTest.class" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/jenius/recommend/car/service/impl/HanLPServiceImplTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/jenius/recommend/car/service/impl/HanLPServiceImplTest.class" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/jenius/recommend/car/service/impl/MailServiceImplTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/jenius/recommend/car/service/impl/MailServiceImplTest.class" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/jenius/recommend/car/utils/ParseMD5UtilTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/jenius/recommend/car/utils/ParseMD5UtilTest.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/enums/ResultEnum.class" afterPath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/enums/ResultEnum.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/util/ResultVOUtil.class" afterPath="$PROJECT_DIR$/target/classes/com/jenius/recommend/car/util/ResultVOUtil.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/user/carList.ftl" afterPath="$PROJECT_DIR$/target/classes/templates/user/carList.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -266,6 +206,11 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="jenius" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
@@ -384,210 +329,6 @@
             <path>
               <item name="car" type="b2602c69:ProjectViewProjectNode" />
               <item name="car" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="aspect" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="constant" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="dataobject" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="handler" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="vo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="car" type="b2602c69:ProjectViewProjectNode" />
-              <item name="car" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="upload" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -906,7 +647,7 @@
       <workItem from="1525611046637" duration="502000" />
       <workItem from="1525611820751" duration="374000" />
       <workItem from="1525612463708" duration="3603000" />
-      <workItem from="1525651960017" duration="29459000" />
+      <workItem from="1525651960017" duration="29696000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交代码此次完成用户登录，注册。前端页面及后端大致整理以及汽车信息比较">
       <created>1524057967287</created>
@@ -915,7 +656,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524057967287</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="时间：2018年05月09日09:15:59&#10;作者：jenius&#10;描述：增加汽车详情页中的评论（仅前端实现）">
+      <created>1525828635046</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1525828635046</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -951,7 +699,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="202951000" />
+    <option name="totallyTimeSpent" value="203188000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -967,7 +715,7 @@
     <layout>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928804" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25584593" sideWeight="0.503125" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="JRebel Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294702" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -985,11 +733,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25637394" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25584593" sideWeight="0.496875" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32524273" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3140625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1014,7 +762,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="第一次提交代码此次完成用户登录，注册。前端页面及后端大致整理以及汽车信息比较" />
-    <option name="LAST_COMMIT_MESSAGE" value="第一次提交代码此次完成用户登录，注册。前端页面及后端大致整理以及汽车信息比较" />
+    <MESSAGE value="时间：2018年05月09日09:15:59&#10;作者：jenius&#10;描述：增加汽车详情页中的评论（仅前端实现）" />
+    <option name="LAST_COMMIT_MESSAGE" value="时间：2018年05月09日09:15:59&#10;作者：jenius&#10;描述：增加汽车详情页中的评论（仅前端实现）" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
