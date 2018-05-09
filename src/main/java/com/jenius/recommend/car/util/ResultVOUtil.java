@@ -1,5 +1,6 @@
 package com.jenius.recommend.car.util;
 
+import com.jenius.recommend.car.enums.ResultEnum;
 import com.jenius.recommend.car.vo.ResultVO;
 
 /**
@@ -24,6 +25,13 @@ public class ResultVOUtil {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(code);
         resultVO.setMsg(message);
+        return resultVO;
+    }
+
+    public static ResultVO error(ResultEnum resultEnum) {
+        ResultVO resultVO = new ResultVO();
+        resultVO.setCode(resultEnum.getCode());
+        resultVO.setMsg(resultEnum.getMassage());
         return resultVO;
     }
 

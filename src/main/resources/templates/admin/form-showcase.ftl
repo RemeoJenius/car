@@ -177,9 +177,9 @@
 					<div class="container">
 						<div class="row clearfix">
 							<div class="col-md-12 column">
-								<form  role="form">
+								<form id="form-add" role="form" enctype="multipart/form-data">
 									<div class="form-group">
-										<label for="exampleInputEmail1">车名</label><input v-model="carForm.carName" type="email" class="form-control" id="exampleInputEmail1" />
+										<label for="exampleInputEmail1">车名</label><input name="car" v-model="carForm.carName" type="text" class="form-control" id="exampleInputEmail1" />
 									</div>
 									<div class="form-group">
 										<label for="exampleInputPassword1">级别</label><input v-model="carForm.carLevel" type="text" class="form-control" id="exampleInputPassword1" />
@@ -194,10 +194,14 @@
 										<label for="exampleInputPassword1">变速箱</label><input v-model="carForm.carTransmission" type="text" class="form-control" id="exampleInputPassword1" />
 									</div>
 									<div class="form-group">
-										<label for="exampleInputPassword1">价格(万)</label><input v-model="carForm.carPrice" type="text"  class="form-control" id="exampleInputPassword1" />
+										<label for="exampleInputPassword1">价格(万)</label><input v-model="carForm.carPrice" type="text" class="form-control" id="exampleInputPassword1" />
 									</div>
 									<div class="form-group">
-										<label for="exampleInputPassword1">评分</label><input v-model="carForm.carRating" type="text"  class="form-control" id="exampleInputPassword1" />
+										<label for="exampleInputPassword1">评分</label><input v-model="carForm.carRating" type="text" class="form-control" id="exampleInputPassword1" />
+									</div>
+									<div class="form-group">
+											用户图像：<input id="file" name="file" type="file" onchange="preview(this)"><br>
+										<div id="preview"></div>
 									</div>
 									<!-- <div class="form-group">
 										<label for="exampleInputPassword1">图片</label><input v-model="imgUrl" type="text" class="form-control" id="exampleInputPassword1" />
@@ -262,7 +266,7 @@
 		var vm = new Vue({
 			el: "#app",
 			data: {
-
+				id: "",
 				carForm: {
 					"carName": "",
 					"carLevel": "",
@@ -273,86 +277,72 @@
 					"carEngine": null,
 					"carRating": ""
 				},
-				result:{}
+				result: {}
 			},
 			methods: {
 				submit: function() {
 					var self = this;
+					var api_url = "";
 					self.carForm.carIcon = self.imgUrl;
 					if (GetQueryString("carId") != null) {
-						reqwest({
-							url: "/car/recommend/update/" + GetQueryString("carId"),
-							type: "json",
-							data: {
-								"carId": GetQueryString("carId"),
-								"carName": self.carForm.carName,
-								"carLevel": self.carForm.carLevel,
-								"carStructure": self.carForm.carStructure,
-								// "carIcon": self.carForm.carIcon,
-								"carPrice": self.carForm.carPrice,
-								"carTransmission": self.carForm.carTransmission,
-								"carEngine": self.carForm.carEngine,
-								"carRating":self.carForm.carRating
-							},
-							method: "post",
-							success: function(root) {
-								if (root.code == 0) {
-									self.carForm = root.data;
-									alert("修改成功");
-									window.location.href='/car/admin/tables.html';
-								}
-								alert(result.data);
-								window.location.href='/car/admin/tables.html';
-							}
-
-						})
+						api_url = "/car/recommend/update/" + GetQueryString("carId");
 					} else {
-						reqwest({
-							url: "/car/recommend/api/add",
-							type: "json",
-							data: {
-								"carName": self.carForm.carName,
-								"carLevel": self.carForm.carLevel,
-								"carStructure": self.carForm.carStructure,
-								// "carIcon": self.carForm.carIcon,
-								"carPrice": self.carForm.carPrice,
-								"carTransmission": self.carForm.carTransmission,
-								"carEngine": self.carForm.carEngine,
-								"carRating":self.carForm.carRating
-							},
-							method: "post",
-							success: function(root) {
-								if (root.code == 0) {
-									alert("添加成功");
-									window.location.href='/car/admin/tables.html';
-								}
-								alert(result.data);
-								window.location.href='/car/admin/tables.html';
-							}
-
-						})
+						api_url = "/car/recommend/api/add";
 					}
+
+
+						var formData = new FormData();
+						if ($('#file')[0].files[0] != null) {
+							formData.append('file', $('#file')[0].files[0]);
+						}
+						formData.append('carId', GetQueryString("carId"));
+						formData.append('carName', self.carForm.carName);
+						formData.append('carLevel', self.carForm.carLevel);
+						formData.append('carStructure', self.carForm.carStructure);
+						formData.append('carPrice', self.carForm.carPrice);
+						formData.append('carTransmission', self.carForm.carTransmission);
+						formData.append('carEngine', self.carForm.carEngine);
+						formData.append('carRating', self.carForm.carRating);
+						$.ajax({
+							url: api_url,
+							type: 'POST',
+							cache: false,
+							data: formData,
+							processData: false,
+							contentType: false
+						}).done(function(root) {
+							console.log(root);
+							if (root.code == 0) {
+								self.carForm = root.data;
+								alert("成功!");
+								window.location.href = '/car/admin/tables.html';
+							}
+							alert(result.data);
+							window.location.href = '/car/admin/tables.html';
+						}).fail(function(res) {});
+
 				},
 				getCar: function() {
-		            var self = this;
-		            var car = null;
+					var self = this;
+					var car = null;
 					if (GetQueryString("carId") != null) {
-			            $.ajax({
-			                url: "/car/recommend/detail/" + GetQueryString("carId"),
-			                dataType: "json",
-			                async:false
-			            }).done(function(result) {
-			                //不能在这个里面直接返回，直接反回是获取不到数据的
-			                if (result.code == 0) {
-								car= result.data;
+						$.ajax({
+							url: "/car/recommend/detail/" + GetQueryString("carId"),
+							dataType: "json",
+							async: false
+						}).done(function(result) {
+							//不能在这个里面直接返回，直接反回是获取不到数据的
+							console.log(result);
+							if (result.code == 0) {
+								car = result.data;
 								return;
-			                }
-						alert(result.data);
-						window.location.href='/car/admin/tables.html';
-			            });
-			            return car;
-		        }
-			}
+							}
+							alert(result.data);
+							window.location.href = '/car/admin/tables.html';
+						});
+						return car;
+					}
+				}
 
 			},
 			ready: function() {
@@ -361,6 +351,19 @@
 			}
 
 		});
+
+		function preview(file) {
+			var prevDiv = document.getElementById('preview');
+			if (file.files && file.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function(evt) {
+					prevDiv.innerHTML = '<img style="max-width: 200px;max-height: 200px;" src="' + evt.target.result + '" />';
+				}
+				reader.readAsDataURL(file.files[0]);
+			} else {
+				prevDiv.innerHTML = '<div class="img" style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src=\'' + file.value + '\'"></div>';
+			}
+		}
 	</script>
 </body>
 

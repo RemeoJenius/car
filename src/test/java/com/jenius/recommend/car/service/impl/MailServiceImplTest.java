@@ -26,5 +26,13 @@ public class MailServiceImplTest {
         MailService.sendSimpleMail("remeojenius@163.com","test simple mail"," hello this is simple mail");
     }
 
+    @Test
+    public void split() {
+        String str = "/Volumes/ziyan/IntellijIDEAproject/car/target/classes/static/upload/20180508/400365ff-2f1b-4290-84fb-530cc190378b.jpg";
+        for (String s : str.split("static")) {
+            System.out.println(s);
+        }
+
+    }
 
 }

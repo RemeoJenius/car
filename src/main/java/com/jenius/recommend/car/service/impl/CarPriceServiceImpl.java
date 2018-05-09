@@ -45,7 +45,18 @@ public class CarPriceServiceImpl implements CarPriceService {
     }
 
     @Override
+    public List<CarPrice> getCarPriceListByCarId(Integer id) {
+        return carPriceRepository.findAllByCarId(id);
+    }
+
+
+    @Override
     public void deleteCarPriceByCarId(Integer id) {
         carPriceRepository.deleteCarPriceByCarId(id);
+    }
+
+    @Override
+    public CarPrice addRecommendValueForCarPrice(CarPrice carPrice) {
+        return null;
     }
 }

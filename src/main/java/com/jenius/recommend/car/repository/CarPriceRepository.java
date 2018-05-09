@@ -27,6 +27,12 @@ public interface CarPriceRepository extends JpaRepository<CarPrice,Integer>{
      * 根据汽车id对应
      * @return
      */
+    List<CarPrice> findAllByCarId(Integer carId);
+
+    /**
+     * 根据汽车id对应
+     * @return
+     */
     CarPrice findOneByCarId(Integer carId);
 
     /**

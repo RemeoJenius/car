@@ -6,10 +6,12 @@ package com.jenius.recommend.car.form;/**
 import lombok.Data;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import java.io.File;
 import java.math.BigDecimal;
 
 /**
@@ -43,6 +45,9 @@ public class CarForm extends Form{
     /** 车身结构. */
     @NotEmpty(message = "车身结构不能为空")
     private String carStructure;
+
+    /** 小图. */
+    private MultipartFile file;
 
     /** 小图. */
     private String carIcon;

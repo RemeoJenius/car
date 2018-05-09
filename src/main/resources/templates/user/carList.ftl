@@ -317,7 +317,7 @@
                                         </div>
                                         <div class="b-goods-1__inner">
                                             <div class="b-goods-1__header"><a class="b-goods-1__choose hidden-th" href="listing-1.html"><i class="icon fa fa-heart-o"></i></a>
-                                                <h2 class="b-goods-1__name"><a href="car-details.html">{{car.carName}}</a></h2>
+                                                <h2 class="b-goods-1__name"><a href="userCarDetails?carId={{car.carId}}">{{car.carName}}</a></h2>
                                             </div>
                                             <div class="b-goods-1__info">Duis aute irure reprehender voluptate velit esacium fugiat nula pariatur excepteurd magna aliqua ut enim ad minim veniam quis nostrud Lorem ipsum dolor sit amet con sectetur adipisicing elit sed do eiusmod tempor
                                                 incididunt<span class="b-goods-1__info-more collapse" id="info-1"> lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit aut rerum numquam hic eum, aperiam fuga, pariatur repellendus. Incidunt corporis iusto illo nesciunt soluta optio eius aliquam. Similique, laborum dicta!</span>

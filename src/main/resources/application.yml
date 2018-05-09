@@ -29,6 +29,12 @@ spring:
     view:
       prefix: /
       suffix: .html
+  http:
+    multipart:
+      enabled: true
+      file-size-threshold: 0
+      max-file-size: 1MB
+      max-request-size: 10MB
 server:
   context-path: /car
 #  ssl:
@@ -48,9 +54,11 @@ mybatis:
     map-underscore-to-camel-case: true
   mapper-locations: classpath:mapper/*.xml
 
-custom:
-  tmpLocation: /Volumes/ziyan/IntellijIDEAproject/car/src/main/resources/static/upload/
-  resourceLocation: /Volumes/ziyan/IntellijIDEAproject/car/src/main/resources/static/upload/
+
+
+
+
+
 
 
 #logging:

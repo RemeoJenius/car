@@ -1,16 +1,18 @@
 package com.jenius.recommend.car.controller;
 
+import com.jenius.recommend.car.constant.CookieConstant;
+import com.jenius.recommend.car.constant.RedisConstant;
+import com.jenius.recommend.car.dataobject.CarComment;
 import com.jenius.recommend.car.dataobject.CarPrice;
+import com.jenius.recommend.car.dataobject.UserInfo;
 import com.jenius.recommend.car.dto.CarDTO;
 import com.jenius.recommend.car.enums.ResultEnum;
 import com.jenius.recommend.car.exception.CarException;
 import com.jenius.recommend.car.form.CarComparingForm;
 import com.jenius.recommend.car.form.CarForm;
-import com.jenius.recommend.car.service.CarInfoService;
-import com.jenius.recommend.car.service.CarPriceService;
-import com.jenius.recommend.car.vo.CarInfoVO;
-import com.jenius.recommend.car.vo.CarVO;
-import com.jenius.recommend.car.vo.ResultVO;
+import com.jenius.recommend.car.service.*;
+import com.jenius.recommend.car.util.CookieUtil;
+import com.jenius.recommend.car.vo.*;
 import com.jenius.recommend.car.dataobject.CarInfo;
 import com.jenius.recommend.car.service.impl.CarInfoServiceImpl;
 import com.jenius.recommend.car.util.ResultVOUtil;
@@ -20,12 +22,16 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 import javax.ws.rs.PathParam;
 import java.util.*;
@@ -47,6 +53,18 @@ public class CarInfoController {
     @Autowired
     private CarPriceService carPriceService;
 
+    @Autowired
+    private CarCommentService carCommentService;
+
+    @Autowired
+    private FileUploadService fileUploadService;
+
+    @Autowired
+    private StringRedisTemplate redisTemplate;
+
+    @Autowired
+    private UserInfoService userInfoService;
+
     /**
      * 根据汽车id返回汽车实例
      * @param id
@@ -60,9 +78,9 @@ public class CarInfoController {
         CarPrice carPrice = carPriceService.getCarPriceByCarId(id);
         CarInfo carInfo = carInfoService.getCarInfoByCarId(id);
         log.info("【carPrice信息】{}",carPrice);
+
         try {
             BeanUtils.copyProperties(carPrice,carForm);
-            log.info("【carForm】{}",carForm);
             BeanUtils.copyProperties(carInfo,carForm);
             log.info("【carForm】{}",carForm);
         } catch (Exception e) {
@@ -73,6 +91,34 @@ public class CarInfoController {
         return ResultVOUtil.success(carForm);
     }
 
+    /**
+     * 根据汽车id返回汽车实例
+     * @param id
+     * @return
+     */
+    @ApiOperation(value="汽车详情和评论")
+    @GetMapping("/detailAndComment/{id}")
+    @ResponseBody
+    public ResultVO findCarInfoAndCommentByCarId(@PathVariable Integer id) {
+        CarDetailAndCommentVO carDetailAndCommentVO = new CarDetailAndCommentVO();
+        CarPrice carPrice = carPriceService.getCarPriceByCarId(id);
+        CarInfo carInfo = carInfoService.getCarInfoByCarId(id);
+        carDetailAndCommentVO.setPraise(carCommentService.listCarCommentByCarIdAndType(carInfo.getCarId(),1)
+                .stream().map(CarComment::getCarComment).collect(Collectors.toList()));
+        carDetailAndCommentVO.setBadReview(carCommentService.listCarCommentByCarIdAndType(carInfo.getCarId(),2)
+                .stream().map(CarComment::getCarComment).collect(Collectors.toList()));
+        log.info("【carPrice信息】{}",carPrice);
+        try {
+            BeanUtils.copyProperties(carPrice,carDetailAndCommentVO);
+            BeanUtils.copyProperties(carInfo,carDetailAndCommentVO);
+            log.info("【carDetailAndCommentVO】{}",carDetailAndCommentVO);
+        } catch (Exception e) {
+            log.error("【获取汽车】{}",carDetailAndCommentVO);
+            throw new CarException(ResultEnum.DATABASE_RESULT_ERROR);
+        }
+
+        return ResultVOUtil.success(carDetailAndCommentVO);
+    }
     /**
      * 返回所有的汽车（不分页）
      * @return
@@ -207,6 +253,12 @@ public class CarInfoController {
             CarPrice carPrice = new CarPrice();
             BeanUtils.copyProperties(carForm,carInfo);
             BeanUtils.copyProperties(carForm,carPrice);
+            if (carForm.getFile() != null) {
+                String icon = fileUploadService.imageUpload(carForm.getFile());
+                if (icon != null && !icon.equals("")) {
+                    carInfo.setCarIcon(icon);
+                }
+            }
             CarInfo result = carInfoService.saveCarInfo(carInfo);
             carPrice.setCarId(carInfo.getCarId());
             carPriceService.saveCarPrice(carPrice);
@@ -229,6 +281,7 @@ public class CarInfoController {
     public ResultVO updateCar(@Validated CarForm carForm,
                               BindingResult bindingResult,
                               @PathVariable("id")Integer id) {
+
         if (bindingResult.hasErrors()) {
             log.error("【参数输入有误】{}",carForm);
             throw new CarException(ResultEnum.PARAM_ERROR.getCode(),ResultEnum.PARAM_ERROR.getMassage());
@@ -240,8 +293,16 @@ public class CarInfoController {
             if (carInfo != null && carPrice != null) {
                 BeanUtils.copyProperties(carForm,carInfo);
                 BeanUtils.copyProperties(carForm,carPrice);
+                if (carForm.getFile() != null) {
+                    String icon = fileUploadService.imageUpload(carForm.getFile());
+                    if (icon != null && !icon.equals("")) {
+                        carInfo.setCarIcon(icon);
+                    }
+                }
                 try {
+                    log.info("【汽车信息更新】carInfo.getCarIcon()={}",carInfo.getCarIcon());
                     carInfoService.saveCarInfo(carInfo);
+                    log.info("【carPrice】={}",carPrice);
                     carPriceService.saveCarPrice(carPrice);
                 } catch (Exception e) {
                     log.error("【汽车更新失败】{}",e.getMessage());
@@ -251,6 +312,68 @@ public class CarInfoController {
         }
         return ResultVOUtil.error(ResultEnum.UPDATE_CAR_FAILURE.getCode(),ResultEnum.UPDATE_CAR_FAILURE.getMassage());
     }
+
+    @ApiOperation(value="创建评论接口")
+    @PostMapping("/create/comment")
+    @ResponseBody
+    public ResultVO createComment(@RequestParam("comment")String  comment,
+                                  @RequestParam("carId")Integer carId,
+                                  HttpServletRequest request) {
+        String tokenValue = getTokenValue(request);
+        log.info("【tokenValue】={}",tokenValue);
+        if (tokenValue != null && !"".equals(tokenValue)) {
+            UserInfo userInfo = userInfoService.getUserInfoByUserName(tokenValue);
+            if (userInfo != null) {
+                CarComment carComment = new CarComment();
+                carComment.setCarComment(comment);
+                carComment.setCarId(carId);
+                carComment.setUserId(userInfo.getUserId());
+                CarComment result = carCommentService.save(carComment);
+                if (result != null) {
+                    return ResultVOUtil.success();
+                }
+                log.info("【创建评论】失败result={}",result);
+                throw new CarException(ResultEnum.CREATE_COMMENT_ERROR);
+            }
+            log.info("【创建评论】失败userInfo为空tokenValue={}",tokenValue);
+            throw new CarException(ResultEnum.CREATE_COMMENT_ERROR);
+
+        }
+        return ResultVOUtil.error(ResultEnum.CREATE_COMMENT_ERROR);
+    }
+
+    @GetMapping("/delete/comment/{commentId}")
+    @ResponseBody
+    @ApiOperation(value="删除评论接口")
+    public ResultVO deleteComment(@PathVariable("commentId")Integer commentId,
+                                  HttpServletRequest request) {
+        String tokenValue = getTokenValue(request);
+        log.info("【tokenValue】={}",tokenValue);
+        if (tokenValue != null && !"".equals(tokenValue)) {
+            UserInfo userInfo = userInfoService.getUserInfoByUserName(tokenValue);
+            if (userInfo != null) {
+                CarComment carComment = carCommentService.getCarCommentById(commentId);
+                if (carComment != null) {
+                    if (carComment.getUserId().equals(userInfo.getUserId())) {
+                        carCommentService.deleteComment(commentId);
+                        return ResultVOUtil.success();
+                    }
+                    log.error("【删除评论】失败carComment.getUserId()={};userInfo.getUserId()={}"
+                            ,carComment.getUserId(),userInfo.getUserId());
+                    throw new CarException(ResultEnum.NO_PERMISSION_TO_DELETE_COMMENTS);
+                }
+                log.error("【删除评论】失败carComment={}",carComment);
+                throw new CarException(ResultEnum.DELETE_COMMENT_ERROR);
+            }
+            log.error("【删除评论】失败userInfo为空tokenValue={}",tokenValue);
+            throw new CarException(ResultEnum.DELETE_COMMENT_ERROR);
+
+        }
+        return ResultVOUtil.error(ResultEnum.DELETE_COMMENT_ERROR);
+    }
+
+
+
     @ApiOperation(value="汽车比较接口")
     @GetMapping("/comparing")
     @ResponseBody
@@ -284,6 +407,16 @@ public class CarInfoController {
         return new ModelAndView("admin/tables");
     }
     /**
+     * 汽车信息修改ftl
+     * @return
+     */
+    @ApiOperation(value = "汽车信息修改")
+    @GetMapping("/update")
+    public ModelAndView carUpdate() {
+
+        return new ModelAndView("admin/form-update");
+    }
+    /**
      * 汽车列表ftl
      * @return
      */
@@ -292,6 +425,26 @@ public class CarInfoController {
     public ModelAndView userCarList() {
 
         return new ModelAndView("user/carList");
+    }
+    /**
+     * 汽车详情ftl
+     * @return
+     */
+    @ApiOperation(value = "前台台汽车列表")
+    @GetMapping("/userCarDetails")
+    public ModelAndView carDetails() {
+
+        return new ModelAndView("user/car-details");
+    }
+
+    /**
+     * 从cookie中获取token值再从redis查找用户名
+     * @param request
+     * @return
+     */
+    private String getTokenValue(HttpServletRequest request) {
+        Cookie cookie = CookieUtil.get(request, CookieConstant.TOKEN);
+        return redisTemplate.opsForValue().get(String.format(RedisConstant.TOKEN_PREFIX,cookie.getValue()));
     }
 
 }

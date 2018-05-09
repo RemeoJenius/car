@@ -42,4 +42,13 @@ public interface CarPriceService {
      */
     void deleteCarPriceByCarId(Integer id);
 
+    /**
+     * 给汽车添加推荐值
+     * @param carPrice
+     * @return
+     */
+    CarPrice addRecommendValueForCarPrice(CarPrice carPrice);
+
+    List<CarPrice> getCarPriceListByCarId(Integer id);
+
 }

@@ -14,6 +14,9 @@ package com.jenius.recommend.car.service;/**
  **/
 public interface HanLPService {
 
-    void emotionAnalysis();
+    /**
+     * 根据评论内容判断评论是正面还是负面
+     */
+    Integer emotionAnalysis(String content);
 
 }

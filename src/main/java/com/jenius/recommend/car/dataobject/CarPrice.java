@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.ToString;
 import org.hibernate.annotations.DynamicUpdate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -30,10 +31,12 @@ public class CarPrice {
 
     @Id
     @GeneratedValue
-    private Integer id;
+    @Column(name = "id")
+    private Integer carPricdId;
 
     /** 汽车id.*/
     private Integer carId;
+
     /** 指导价格. */
     private BigDecimal carPrice;
 
@@ -48,4 +51,7 @@ public class CarPrice {
 
     /** 修改时间. */
     private Date updateTime;
+
+    /** 推荐值*/
+    private Integer recommendValue;
 }

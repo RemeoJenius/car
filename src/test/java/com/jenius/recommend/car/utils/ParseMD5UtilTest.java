@@ -8,6 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.ClassUtils;
 
+import java.util.UUID;
+
 /**
  * Jenius
  * Created in 2018/3/17 下午4:14
@@ -24,6 +26,12 @@ public class ParseMD5UtilTest {
     }
     @Test
     public void test() {
+
         log.info("【path】{}",ClassUtils.getDefaultClassLoader().getResource("").getPath());
+
+        System.out.println(UUID.randomUUID().getMostSignificantBits());
+        System.out.println(UUID.randomUUID().getMostSignificantBits());
     }
+
+
 }

@@ -27,7 +27,10 @@ public enum ResultEnum {
     UPDATE_CAR_FAILURE(13,"汽车更新失败"),
     ADD_CAR_FAILURE(13,"汽车添加失败"),
     FILE_NOT_EMPTY(14,"文件不能为空"),
-    FILE_UPLOAD_FAILED(15,"文件上传失败")
+    FILE_UPLOAD_FAILED(15,"文件上传失败"),
+    CREATE_COMMENT_ERROR(16,"创建评论失败"),
+    DELETE_COMMENT_ERROR(17,"删除评论失败"),
+    NO_PERMISSION_TO_DELETE_COMMENTS(18,"没有权限删除该评论")
     ;
 
     private Integer code;
